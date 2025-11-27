@@ -72,7 +72,6 @@ class Firstapp extends StatelessWidget {
                 ),
               ),
 
-
               SizedBox(height: 15,),
               Container(
                 width: double.infinity,
@@ -101,8 +100,6 @@ class Firstapp extends StatelessWidget {
 
               ),
 
-
-
               SizedBox(height: 15,),
               Container(
                 width: double.infinity,
@@ -128,9 +125,7 @@ class Firstapp extends StatelessWidget {
                     ],
                   ),
                 ),
-
               )
-
             ],
           )
         ),
