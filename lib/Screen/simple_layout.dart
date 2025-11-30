@@ -6,6 +6,7 @@ class SimpleLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text("Setting Screen"),
       ),
       body: Padding(
@@ -24,7 +25,15 @@ class SimpleLayout extends StatelessWidget {
                       leading: Icon(Icons.account_circle_rounded),
                       title: Text("Account Setting"),
                       subtitle: Text("Change your account setting"),
-                      trailing: Icon(Icons.arrow_forward_ios),
+                      trailing: Container(
+                        width: 80,
+                        child: Row(
+                          children: [
+                            Icon(Icons.account_circle_rounded),
+                            Text("Account"),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -77,7 +86,6 @@ class SimpleLayout extends StatelessWidget {
                   ),
                 ),
               ),
-
               Card(
                 color: Colors.white,
                 elevation: 3,
@@ -102,6 +110,7 @@ class SimpleLayout extends StatelessWidget {
                         ),
                       ),
                       Row(
+
                         children: [
                           Icon(Icons.favorite_border_outlined,size: 22,),
                           SizedBox(width: 10,),
