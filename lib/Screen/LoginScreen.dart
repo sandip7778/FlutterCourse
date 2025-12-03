@@ -69,9 +69,9 @@ class _LoginscreenState extends State<Loginscreen> {
                           SizedBox(height: 20,),
                           ElevatedWidget(
                               onPressed: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => Firstapp()),);
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Firstapp()),);
                               },
-                              title: "Register",
+                              title: "Login",
                               color: Colors.red
                           ),
                           SizedBox(height: 20,),

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:testapp/Screen/Firstapp.dart';
+import 'package:testapp/Screen/HomeScreen.dart';
 import 'package:testapp/Widget/Button/ElevatedWidget.dart';
 import 'package:testapp/Widget/InputWidget/InputField.dart';
+
+import '../Widget/InputWidget/CustomInput.dart';
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
 
@@ -43,16 +46,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           SizedBox(height: 20,),
                           InputField(hintText: "Email ", icon: Icons.email),
                           SizedBox(height: 20,),
-                          InputField(hintText: "Phone Number ", icon: Icons.phone),
+                          CustomInput(hintText: "Phone Number", icon: Icons.phone),
                           SizedBox(height: 20,),
                           ElevatedWidget(
                               onPressed: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => Firstapp()),);
+                                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => HomeScreen()),(route)=>false);
                               },
                               title: "Register",
                               color: Colors.pink
                           )
-
                         ],
                       ),
                     ),
