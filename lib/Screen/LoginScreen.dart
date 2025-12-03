@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:testapp/Screen/Firstapp.dart';
+import 'package:testapp/Screen/RegisterScreen.dart';
+
+import '../Widget/Button/ElevatedWidget.dart';
+import '../Widget/InputWidget/InputField.dart';
 class Loginscreen extends StatefulWidget {
   const Loginscreen({super.key});
 
@@ -7,6 +12,9 @@ class Loginscreen extends StatefulWidget {
 }
 
 class _LoginscreenState extends State<Loginscreen> {
+
+  var _offsecure = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,9 +31,7 @@ class _LoginscreenState extends State<Loginscreen> {
               children: [
                 Text("Login !",style: TextStyle(fontSize: 24),),
                 Text("welcome to login page",style: TextStyle(fontSize: 14),),
-
                 SizedBox(height: 20,),
-
                 Card(
                   elevation: 2,
                   color: Colors.white,
@@ -35,39 +41,45 @@ class _LoginscreenState extends State<Loginscreen> {
                         padding: EdgeInsets.symmetric(vertical: 16,horizontal: 12),
                       child: Column(
                         children: [
-                         TextField(
-                           decoration: InputDecoration(
-                             hintText: "Username",
-                             border: OutlineInputBorder(
-                               borderRadius: BorderRadius.circular(12),
-                             ),
-                             suffixIcon: Icon(Icons.email)
-                           )
-                         ),
+                          InputField(hintText: "Email ", icon: Icons.email),
                           SizedBox(height: 20,),
                           TextField(
-                            obscureText: true,
+                            obscureText: _offsecure,
                               decoration: InputDecoration(
                                   hintText: "Password",
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12),
                                   ),
-                                  suffixIcon: Icon(Icons.key)
+                                  suffixIcon: IconButton(
+                                      onPressed: (){
+                                        if(_offsecure){
+                                          setState((){
+                                            _offsecure= false;
+                                          });
+                                        }else{
+                                          setState(() {
+                                            _offsecure = true;
+                                          });
+                                        }
+                                      },
+                                      icon: Icon(_offsecure ? Icons.visibility_off : Icons.visibility_outlined)
+                                  )
                               )
                           ),
                           SizedBox(height: 20,),
-                          ElevatedButton(
-                              onPressed: (){},
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.red,
-                              ),
-                              child: Container(
-                                width: double.infinity,
-                                  height: 60,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Center(child: Text("Login ",style: TextStyle(fontSize: 18,color: Colors.white),)),
-                                  ))
+                          ElevatedWidget(
+                              onPressed: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => Firstapp()),);
+                              },
+                              title: "Register",
+                              color: Colors.red
+                          ),
+                          SizedBox(height: 20,),
+                          TextButton(
+                              onPressed: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen()),);
+                              },
+                              child: Text("Register Now ")
                           )
                         ],
                       ),
