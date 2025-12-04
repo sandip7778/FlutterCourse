@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:testapp/Screen/LoginScreen.dart';
 import 'Screen/Firstapp.dart';
+import 'Screen/HomeScreen.dart';
+import 'Screen/ListViewScreen.dart';
 import 'Screen/simple_layout.dart';
 
 
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Loginscreen(),
+      home: HomeScreen(),
     );
   }
 }
