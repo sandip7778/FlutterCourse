@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testapp/Screen/cartScreen.dart';
 
 import 'CategoryScreen.dart';
 
@@ -13,10 +14,10 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   List<Map<String,dynamic>> products = [
-    {"image": "https://images.ctfassets.net/aub2fvcyp2t8/4K5zV3wblVecV6mEAkSKXh/52d88eeb98288a7ef0e5f8567405aa58/1_0-hi-in?fm=webp&w=3840", "title":"Ecommerce Mobile App designs, the  Mobile App designs, the","price":"2220"},
-    {"image": "https://images.ctfassets.net/aub2fvcyp2t8/4K5zV3wblVecV6mEAkSKXh/52d88eeb98288a7ef0e5f8567405aa58/1_0-hi-in?fm=webp&w=3840", "title":"Ecommerce Mobile App designs, the  Mobile App designs, the","price":"320"},
-    {"image": "https://images.ctfassets.net/aub2fvcyp2t8/4K5zV3wblVecV6mEAkSKXh/52d88eeb98288a7ef0e5f8567405aa58/1_0-hi-in?fm=webp&w=3840", "title":"Ecommerce Mobile App designs, the  Mobile App designs, the","price":"820"},
-    {"image": "https://images.ctfassets.net/aub2fvcyp2t8/4K5zV3wblVecV6mEAkSKXh/52d88eeb98288a7ef0e5f8567405aa58/1_0-hi-in?fm=webp&w=3840", "title":"Ecommerce Mobile App designs, the  Mobile App designs, the","price":"20"},
+    {"images": "https://images.ctfassets.net/aub2fvcyp2t8/4K5zV3wblVecV6mEAkSKXh/52d88eeb98288a7ef0e5f8567405aa58/1_0-hi-in?fm=webp&w=3840", "title":"Ecommerce Mobile App designs, the  Mobile App designs, the","price":"2220"},
+    {"images": "https://images.ctfassets.net/aub2fvcyp2t8/4K5zV3wblVecV6mEAkSKXh/52d88eeb98288a7ef0e5f8567405aa58/1_0-hi-in?fm=webp&w=3840", "title":"Ecommerce Mobile App designs, the  Mobile App designs, the","price":"320"},
+    {"images": "https://images.ctfassets.net/aub2fvcyp2t8/4K5zV3wblVecV6mEAkSKXh/52d88eeb98288a7ef0e5f8567405aa58/1_0-hi-in?fm=webp&w=3840", "title":"Ecommerce Mobile App designs, the  Mobile App designs, the","price":"820"},
+    {"images": "https://images.ctfassets.net/aub2fvcyp2t8/4K5zV3wblVecV6mEAkSKXh/52d88eeb98288a7ef0e5f8567405aa58/1_0-hi-in?fm=webp&w=3840", "title":"Ecommerce Mobile App designs, the  Mobile App designs, the","price":"20"},
   ];
 
 
@@ -25,8 +26,17 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Home Screen"),
-        backgroundColor: Colors.white,
+        title: Text("Home Screen",style: TextStyle(color: Colors.white),),
+        backgroundColor: Colors.transparent,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/images/back_h.png'),
+              fit: BoxFit.cover,
+            )
+          ),
+        ),
+
       ),
       body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0,horizontal: 16.0),
@@ -40,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Text('Category',style: TextStyle(fontSize: 18),),
                   TextButton(
                       onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => CategoryScreen()),);
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => CartScreen()),);
                       },
                       child: Text("See All")
                   )
@@ -112,7 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Container(
                                     width: double.infinity,
                                     height: 120,
-                                    child: Image.network('${product['image']}'),
+                                    child: Image.network('${product['images']}'),
                                   ),
                                   SizedBox(height: 10,),
                                   Text('${product['title']}',style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),maxLines: 1,),
@@ -160,7 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Container(
                                     width: double.infinity,
                                     height: 120,
-                                    child: Image.network('${product['image']}'),
+                                    child: Image.network('${product['images']}'),
                                   ),
                                   SizedBox(height: 10,),
                                   Text('${product['title']}',style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),maxLines: 1,),
@@ -208,7 +218,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Container(
                                     width: double.infinity,
                                     height: 120,
-                                    child: Image.network('${product['image']}'),
+                                    child: Image.network('${product['images']}'),
                                   ),
                                   SizedBox(height: 10,),
                                   Text('${product['title']}',style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold),maxLines: 1,),
