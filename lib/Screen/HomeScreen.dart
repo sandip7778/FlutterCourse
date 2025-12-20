@@ -20,7 +20,6 @@ class _HomeScreenState extends State<HomeScreen> {
     {"images": "https://images.ctfassets.net/aub2fvcyp2t8/4K5zV3wblVecV6mEAkSKXh/52d88eeb98288a7ef0e5f8567405aa58/1_0-hi-in?fm=webp&w=3840", "title":"Ecommerce Mobile App designs, the  Mobile App designs, the","price":"20"},
   ];
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
