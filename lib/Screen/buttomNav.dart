@@ -17,7 +17,7 @@ class _ButtomNavState extends State<ButtomNav> {
     CategoryScreen(),
     ListViewScreen(),
     ListViewScreen(),
-    ListViewScreen()
+
   ];
 
   @override
