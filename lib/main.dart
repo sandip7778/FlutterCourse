@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:testapp/Screen/LoginScreen.dart';
+import 'package:testapp/Screen/note_screen.dart';
 import 'Screen/Firstapp.dart';
 import 'Screen/HomeScreen.dart';
 import 'Screen/ListViewScreen.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: ButtomNav(),
+      home: NoteScreen(),
     );
   }
 }

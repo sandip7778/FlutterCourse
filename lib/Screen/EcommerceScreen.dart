@@ -7,6 +7,16 @@ class EcommerceScreen extends StatefulWidget {
 }
 
 class _EcommercecreenState extends State<EcommerceScreen> {
+
+  final PageController controller = PageController();
+  int currentIndex = 0;
+  List<Map<String,dynamic>> slidePage = [
+    {"images": "https://cdn-icons-png.flaticon.com/512/7910/7910224.png", "title":"Fruits","price":"2220"},
+    {"images": "https://thumbs.dreamstime.com/b/cute-kawaii-radish-cartoon-icon-illustration-food-vegitable-flat-icon-concept-isolated-cute-kawaii-radish-cartoon-icon-265091565.jpg", "title":"Vegitable","price":"320"},
+    {"images": "https://cdn-icons-png.flaticon.com/512/6170/6170624.png", "title":"Diary","price":"820"},
+    {"images": "https://cdn-icons-png.freepik.com/512/1046/1046769.png", "title":"Meat","price":"20"},
+  ];
+
   List<Map<String,dynamic>> products = [
     {"images": "https://cdn-icons-png.flaticon.com/512/7910/7910224.png", "title":"Fruits","price":"2220"},
     {"images": "https://thumbs.dreamstime.com/b/cute-kawaii-radish-cartoon-icon-illustration-food-vegitable-flat-icon-concept-isolated-cute-kawaii-radish-cartoon-icon-265091565.jpg", "title":"Vegitable","price":"320"},
@@ -114,17 +124,45 @@ class _EcommercecreenState extends State<EcommerceScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 12.0),
               child: Column(
                 children: [
-                  Card(
-                    child: Container(
-                        width: double.infinity,
-                        height: 180,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            color: Colors.white
-                        ),
-                        child: ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: Image.network('https://www.shutterstock.com/image-photo/burger-special-discount-banner-blank-260nw-2408928973.jpg',fit: BoxFit.cover,))
+                  Container(
+                    width: double.infinity,
+                    height: 200,
+                    child:  PageView.builder(
+                      controller: controller,
+                      onPageChanged: (index){
+                        setState(() {
+                          currentIndex = index;
+                        });
+                      },
+                      itemBuilder: (context,index){
+                        return Card(
+                          child: Container(
+                              width: double.infinity,
+                              height: 180,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Colors.white
+                              ),
+                              child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(12),
+                                  child: Image.network('https://www.shutterstock.com/image-photo/burger-special-discount-banner-blank-260nw-2408928973.jpg',fit: BoxFit.cover,))
+                          ),
+                        );
+                      },
+                      itemCount: slidePage.length,
+                      scrollDirection: Axis.horizontal,
+                    ),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(
+                        slidePage.length, (index) => Container(
+                      margin: EdgeInsets.all(4.0),
+                      width: 10,
+                      height: 10,
+                      color: currentIndex == index ? Colors.red : Colors.grey,
+                    )
                     ),
                   ),
                   SizedBox(height: 15,),
@@ -167,7 +205,6 @@ class _EcommercecreenState extends State<EcommerceScreen> {
               
                     ),
                   ),
-
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

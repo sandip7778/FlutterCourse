@@ -3,6 +3,7 @@ import 'package:testapp/Screen/CategoryScreen.dart';
 import 'package:testapp/Screen/EcommerceScreen.dart';
 import 'package:testapp/Screen/HomeScreen.dart';
 import 'package:testapp/Screen/ListViewScreen.dart';
+import 'package:testapp/Screen/offer_short.dart';
 class ButtomNav extends StatefulWidget {
   const ButtomNav({super.key});
 
@@ -15,6 +16,7 @@ class _ButtomNavState extends State<ButtomNav> {
   final List<Widget> _screen =[
     EcommerceScreen(),
     CategoryScreen(),
+    OfferShort(),
     ListViewScreen(),
     ListViewScreen(),
 
@@ -43,6 +45,7 @@ class _ButtomNavState extends State<ButtomNav> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.category), label: "Category"),
+          BottomNavigationBarItem(icon: Icon(Icons.offline_bolt_rounded), label: "Offer"),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
           BottomNavigationBarItem(icon: Icon(Icons.card_travel), label: "Cart"),
         ],
